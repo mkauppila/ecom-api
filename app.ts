@@ -1,13 +1,13 @@
-import * as express from "express"
-import { OpenAPIBackend } from "openapi-backend"
+import * as express from 'express'
+import {OpenAPIBackend} from 'openapi-backend'
 
 export const api = (): express.Express => {
   const api = new OpenAPIBackend({
-    definition: "./openapi/bundled-api-spec.json",
+    definition: './openapi/bundled-api-spec.json',
   })
   api.register({
-    getProducts: (c, req, res) => res.status(200).json({ result: "ok" }),
-    notFound: (c, req, res) => res.status(400).json({ error: "not found" }),
+    getProducts: (c, req, res) => res.status(200).json({result: 'ok'}),
+    notFound: (c, req, res) => res.status(400).json({error: 'not found'}),
   })
   api.init()
 
